@@ -1,0 +1,65 @@
+.planForm{
+  text-align: center;
+  padding-bottom:10px;
+  background-color: #f6f6f6;
+  border-bottom: 2px solid #f4f4f4;
+}
+
+.form-wrapper{
+  margin:10px;
+  padding:10px;
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+  background-color:#ffffff;
+}
+
+.plan-button {
+  margin: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 3px solid #a9e34b;
+  color: #a9e34b;
+  font-weight: 900;
+}
+
+.plan-button:hover{
+  background-color: #a9e34b;
+  color:white;
+}
+
+.form-img {
+  float: left;
+  width: 100px;
+  height: 130px;
+  line-height: 200px;
+}
+
+.form-img img{
+  width: 80px;
+  height: 80px;
+}
+
+.form-wrapper input {
+  border-radius: 5px;
+  border:1px solid #c1c1c1;
+}
+
+.option-wrapper input{
+  width: 70px;
+  padding:5px;
+}
+
+.option-wrapper span{
+  font-size: 9pt;
+  font-weight: 700;
+  margin: 5px;
+}
+
+.review-wrapper input{
+  margin:5px;
+  padding:5px;
+  height: 90px;
+  width: 348px;
+}
