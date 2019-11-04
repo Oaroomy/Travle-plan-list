@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlanTemplate from './component/PlanTemplate';
 import PlanForm from './component/PlanForm';
+import PlanItemList from './component/PlanItemList.js';
 
 const types= [
   {key:'food', value:'음식점'},
@@ -9,9 +10,18 @@ const types= [
   {key:'next day', value:'다음날'}];
 
 class App extends Component {
+
   state = {
-    type:'food'
+    type:'food',
   }
+
+  state = {
+    type:'food',
+    plans: [
+      {id: 0, place:'고급 레스토랑', price:30000, time:'20:00:00',stars:5,review:'최고였습니다!'}
+    ]
+  }
+
 
   handleTypeChange = (type) => {
     this.setState({ type })
@@ -19,18 +29,23 @@ class App extends Component {
 
   render(){
 
-    const { type
-     } = this.state;
+    const { type, plans } = this.state;
 
     const {
       handleTypeChange
     } = this;
 
-    console.log('test test test');
     return(
-      <PlanTemplate>
+      <PlanTemplate
+       form={(
         <PlanForm
-          types={types} selected = {type} onSelect={handleTypeChange}/>
+          types={types} 
+          selected = {type} 
+          onSelect={handleTypeChange}
+        />
+        )}
+      >
+        <PlanItemList plans={plans} type={type} />
       </PlanTemplate>
     );
   }

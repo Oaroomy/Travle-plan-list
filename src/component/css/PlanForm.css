@@ -2,7 +2,7 @@
   text-align: center;
   padding-bottom:10px;
   background-color: #f6f6f6;
-  border-bottom: 2px solid #f4f4f4;
+  border-bottom: 1px solid #e0e0e0;
 }
 
 .form-wrapper{
@@ -46,14 +46,40 @@
   border:1px solid #c1c1c1;
 }
 
+.option-wrapper {
+  overflow: hidden;
+  text-align: center;
+}
+
+.option-wrapper div{
+  float: left;
+}
+
 .option-wrapper input{
-  width: 70px;
+  width: 135px;
   padding:5px;
+}
+
+.option-wrapper .days span{
+  font-size: 20pt;
+  margin:10px;
+  margin-right: 10pt;
+  color: #4e4e4e;
 }
 
 .option-wrapper span{
   font-size: 9pt;
   font-weight: 700;
+  margin: 5px;
+}
+
+.option-form {
+  width: 370px;
+  text-align: left;
+}
+
+.option-form div{
+  width: 370px;
   margin: 5px;
 }
 
