@@ -1,6 +1,5 @@
 import React from 'react';
 import './css/PlanForm.css';
-import TypeImage from './TypeImage';
 
 const TypeButton = ({ value, active, onClick }) => {
   return (
@@ -46,7 +45,6 @@ const PlanForm = ({types, selected, onSelect}) => {
             </div>
           </div>
           <div className='form-img'>
-            {/* <TypeImage value={selected} /> */}
             <img src={require('./img/'+selected+'.png')} alt={selected} />
           </div>
           <div className="review-wrapper">

@@ -1,5 +1,7 @@
 .plan-list-template {
   margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
   width: 512px;
   overflow:hidden;

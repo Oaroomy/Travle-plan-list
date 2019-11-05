@@ -60,17 +60,17 @@
   padding:5px;
 }
 
-.option-wrapper .days span{
-  font-size: 20pt;
-  margin:10px;
-  margin-right: 10pt;
-  color: #4e4e4e;
-}
-
 .option-wrapper span{
   font-size: 9pt;
   font-weight: 700;
   margin: 5px;
+}
+
+.days span{
+  font-size: 20pt;
+  margin:10px;
+  margin-right: 10pt;
+  color: #4e4e4e;
 }
 
 .option-form {

@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
-import './css/PlanForm.css';
-import TypeImage from './TypeImage';
+import './css/PlanItem.css';
 
 class PlanItem extends Component {
   render(){
     const{ id, place, price, time, stars, review, type } = this.props;
     return(
-      <div>
-        <div>
-          <div>
+      <div className='item-wrapper'>
+        <div className='first-row'>
+          <div className="today">
             <span>1일차</span>
+            <div>{time}</div> 
           </div>
-          <div>
-            <div>
-              <span>장소명</span> {place} 
-              <span>가격</span> {price}
+          <div className="info-wrapper">
+            <div className="info-first-row"> 
+              <span>장소</span> <div>{place}</div> 
             </div>
-            <div>
-              <span>시간</span> {time} 
-              <span>별점</span>{stars}
+            <div className="info-second-row">
+               <span>가격</span> <div>{price}</div>
+              <span>별점</span> <div>{stars}</div>
             </div>
           </div>
         </div>
-        <div>
-        <img src={require('./img/'+type+'.png')} alt={type} />
-        </div>
-        <div>
-          {review}
+        <div  className="second-row">
+          <div className="img-item">
+            <img src={require('./img/'+type+'.png')} alt={type} />
+          </div>
+          <div className="review">
+            {review}
+          </div>
         </div>
       </div>
     );

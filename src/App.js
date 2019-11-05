@@ -12,24 +12,30 @@ const types= [
 class App extends Component {
 
   state = {
-    type:'food',
-  }
-
-  state = {
-    type:'food',
+    selected:'food',
     plans: [
-      {id: 0, place:'고급 레스토랑', price:30000, time:'20:00:00',stars:5,review:'최고였습니다!'}
+      {id: 0, place:'서울특별시의 고급 레스토랑', price:300000, time:'20:00:00',stars:5,review:'이곳에서는 꼭 조식을 드셔보세요. 조식이 정말 맛있습니다.', type: 'food'}
     ]
   }
 
 
-  handleTypeChange = (type) => {
-    this.setState({ type })
+  handleTypeChange = (selected) => {
+    this.setState({ selected })
+  }
+
+  handleCreate = () => {
+    const { plans }= this.state;
+    this.setState({
+      plans: plans.concat({
+        id: this.id++,
+        
+      })
+    })
   }
 
   render(){
 
-    const { type, plans } = this.state;
+    const { selected, plans } = this.state;
 
     const {
       handleTypeChange
@@ -40,12 +46,12 @@ class App extends Component {
        form={(
         <PlanForm
           types={types} 
-          selected = {type} 
+          selected = {selected} 
           onSelect={handleTypeChange}
         />
         )}
       >
-        <PlanItemList plans={plans} type={type} />
+        <PlanItemList plans={plans}/>
       </PlanTemplate>
     );
   }

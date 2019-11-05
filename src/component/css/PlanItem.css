@@ -1,3 +1,63 @@
-.row div{
+.item-wrapper {
+  padding:10px;
+}
+
+.today {
   float: left;
+  padding:0px 30px 0px 10px;
+  font-size: 15pt;
+}
+
+.today span {
+  font-size:25pt;
+}
+
+.info-wrapper{
+  float: left;
+  font-size: 13pt;
+}
+
+.info-wrapper span{
+  font-weight: 700;
+  margin: 10px;
+}
+
+.info-wrapper div{
+  margin : 5px 0px 5px 0px ;
+}
+
+.info-first-row div {
+  display: inline-block;
+  width:260px;
+  text-align: left;
+}
+
+.info-second-row div{
+  display: inline-block;
+  width: 100px;
+}
+
+.second-row div{
+  float: left;
+}
+
+.img-item {
+  width: 120px;
+  height: 130px;
+  line-height: 140pt;
+}
+
+.img-item img{
+  width: 80px;
+  height: 80px;
+}
+
+.review {
+  height: 90px;
+  width: 320px;
+  border: 1px solid #adadad;
+  border-radius: 5px;
+  padding: 10px;
+  margin:10px;
+  text-align: justify;
 }

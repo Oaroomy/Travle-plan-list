@@ -4,10 +4,10 @@ import PlanItem from './PlanItem';
 class PlanItemList extends Component {
   
   render(){
-    const { plans, type } = this.props;
+    const { plans } = this.props;
 
     const planList = plans.map(
-      ({id, place, price, time, stars,review}) => (
+      ({id, place, price, time, stars, review, type}) => (
         <PlanItem
           id={id}
           place={place}
