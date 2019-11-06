@@ -7,7 +7,7 @@ class PlanItemList extends Component {
     const { plans } = this.props;
 
     const planList = plans.map(
-      ({id, place, price, time, stars, review, type}) => (
+      ({id, place, price, time, stars, review,type}) => (
         <PlanItem
           id={id}
           place={place}
@@ -16,6 +16,7 @@ class PlanItemList extends Component {
           stars={stars}
           review={review}
           type={type}
+          key={id}
         />
       )
     )

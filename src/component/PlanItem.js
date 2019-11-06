@@ -3,7 +3,7 @@ import './css/PlanItem.css';
 
 class PlanItem extends Component {
   render(){
-    const{ id, place, price, time, stars, review, type } = this.props;
+    const{ place, price, time, stars, review, type } = this.props;
     return(
       <div className='item-wrapper'>
         <div className='first-row'>
@@ -25,7 +25,7 @@ class PlanItem extends Component {
           <div className="img-item">
             <img src={require('./img/'+type+'.png')} alt={type} />
           </div>
-          <div className="review">
+          <div className="review-box">
             {review}
           </div>
         </div>

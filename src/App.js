@@ -14,22 +14,18 @@ class App extends Component {
   state = {
     selected:'food',
     plans: [
-      {id: 0, place:'서울특별시의 고급 레스토랑', price:300000, time:'20:00:00',stars:5,review:'이곳에서는 꼭 조식을 드셔보세요. 조식이 정말 맛있습니다.', type: 'food'}
+      {id: 0, place:'서울특별시의 고급 레스토랑', price:300000, time:'20:00:00',stars:5, review:'이곳에서는 꼭 조식을 드셔보세요. 조식이 정말 맛있습니다.', type: 'food'}
     ]
   }
-
 
   handleTypeChange = (selected) => {
     this.setState({ selected })
   }
 
-  handleCreate = () => {
-    const { plans }= this.state;
+  handleCreate = (data) => {
+    const { plans } = this.state;
     this.setState({
-      plans: plans.concat({
-        id: this.id++,
-        
-      })
+      plans: plans.concat({ id: this.id++, ...data })
     })
   }
 
@@ -38,7 +34,8 @@ class App extends Component {
     const { selected, plans } = this.state;
 
     const {
-      handleTypeChange
+      handleTypeChange,
+      handleChange
     } = this;
 
     return(
@@ -48,6 +45,7 @@ class App extends Component {
           types={types} 
           selected = {selected} 
           onSelect={handleTypeChange}
+          onChange={handleChange}
         />
         )}
       >
