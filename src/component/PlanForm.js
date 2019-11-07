@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './css/PlanForm.css';
 
 const TypeButton = ({ value, active, onClick }) => {
@@ -11,9 +11,49 @@ const TypeButton = ({ value, active, onClick }) => {
   );
 }
 
-const PlanForm = ({types, selected, onSelect, onChange}) => {
+class PlanForm extends Component {
+
+  state={
+    place:'',
+    price:'',
+    time:'',
+    stars:'',
+    review:'',
+    type: this.props.selected
+  }
+
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  }
   
-  const typeList = types.map(
+  handleSubmit = (e) => {
+    // 페이지 리로딩 방지
+    e.preventDefault();
+    // 상태값을 onCreate 를 통하여 부모에게 전달
+    this.props.onCreate(this.state);
+    // 상태 초기화
+    this.setState({
+      place:'',
+      price:'',
+      time:'',
+      stars:'',
+      review:'',
+      type: 'food'
+    })
+  }
+
+  render(){
+
+    const {
+      types,
+      selected,
+      onSelect
+    } = this.props;
+
+    const typeList = types.map(
     (item) => (<TypeButton value={item.value} active={selected === item.key} onClick={()=>onSelect(item.key)} key={item.key}/>));
 
   return (
@@ -30,31 +70,32 @@ const PlanForm = ({types, selected, onSelect, onChange}) => {
             <div className="option-form">
               <div>
                 <span> 장소</span>
-                <input type="text" name="place" placeholder="그 곳은 어딘가요?"/>
+                <input type="text" name="place" placeholder="그 곳은 어딘가요?" onChange={this.handleChange}/>
                 
                 <span> 가격</span>
-                <input type="number" name="price" placeholder="얼마였나요?"/>
+                <input type="number" name="price" placeholder="얼마였나요?" onChange={this.handleChange}/>
               </div>
               <div>
                 <span> 시간</span>
                 <input type="time" name="time"/>
                 
                 <span> 별점</span>
-                <input type="text" name="stars" placeholder="5점 만점에?"/>
+                <input type="text" name="stars" placeholder="5점 만점에?" onChange={this.handleChange}/>
               </div>
             </div>
           </div>
           <div className='form-img'>
-            <img src={require('./img/'+selected+'.png')} alt={selected} />
+            <img src={require('./img/'+selected+'.png')} alt={selected}/>
           </div>
           <div className="review-wrapper">
-            <input type="text" name="review" placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!"/>
+            <input type="text" name="review" placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!" onChange={this.handleChange}/>
           </div>
         </div>
       </section>
-      <input type="button" value="확인" className="plan-button"/>
+      <input type="button" value="확인" className="plan-button" onClick={this.handleSubmit}/>
     </div>
   );
+}
 }
 
 export default PlanForm;

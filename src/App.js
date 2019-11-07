@@ -35,7 +35,7 @@ class App extends Component {
 
     const {
       handleTypeChange,
-      handleChange
+      handleCreate
     } = this;
 
     return(
@@ -45,7 +45,7 @@ class App extends Component {
           types={types} 
           selected = {selected} 
           onSelect={handleTypeChange}
-          onChange={handleChange}
+          onCreate={handleCreate}
         />
         )}
       >
