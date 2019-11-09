@@ -25,8 +25,9 @@ class PlanForm extends Component {
 
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
+    console.log('change'+this.state.type+","+this.state.place+"+"+this.state.price);
   }
   
   handleSubmit = (e) => {
@@ -40,8 +41,15 @@ class PlanForm extends Component {
       price:'',
       time:'',
       stars:'',
-      review:'',
+      review:'',  
       type: 'food'
+    })
+  }
+
+  handleImageChange = () => {
+    this.setState({
+      ...this.state,
+      type: this.props.selected
     })
   }
 
@@ -73,19 +81,19 @@ class PlanForm extends Component {
                 <input type="text" name="place" placeholder="그 곳은 어딘가요?" onChange={this.handleChange}/>
                 
                 <span> 가격</span>
-                <input type="number" name="price" placeholder="얼마였나요?" onChange={this.handleChange}/>
+                <input type="number" name="price" placeholder="얼마였나요?" onLoad={this.handleChange}/>
               </div>
               <div>
-                <span> 시간</span>
-                <input type="time" name="time"/>
+                <span> 시간</span>  
+                <input type="time" name="time" onLoad={this.handleChange}/>
                 
                 <span> 별점</span>
-                <input type="text" name="stars" placeholder="5점 만점에?" onChange={this.handleChange}/>
+                <input type="number" name="stars" placeholder="5점 만점에?" onLoad={this.handleChange}/>
               </div>
             </div>
           </div>
           <div className='form-img'>
-            <img src={require('./img/'+selected+'.png')} alt={selected}/>
+            <img src={require('./img/'+selected+'.png')} alt={selected} onLoad={this.handleImageChange}/>
           </div>
           <div className="review-wrapper">
             <input type="text" name="review" placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!" onChange={this.handleChange}/>

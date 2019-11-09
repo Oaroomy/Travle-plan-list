@@ -19,7 +19,10 @@ class App extends Component {
   }
 
   handleTypeChange = (selected) => {
-    this.setState({ selected })
+    this.setState({ 
+      ...this.state,
+      selected: selected
+     })
   }
 
   handleCreate = (data) => {
@@ -27,6 +30,7 @@ class App extends Component {
     this.setState({
       plans: plans.concat({ id: this.id++, ...data })
     })
+    console.log(plans+"추가사항");
   }
 
   render(){
