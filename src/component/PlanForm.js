@@ -27,14 +27,13 @@ class PlanForm extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
-    console.log('change'+this.state.type+","+this.state.place+"+"+this.state.price);
+    console.log('change'+this.state.time);
   }
   
   handleSubmit = (e) => {
     // 페이지 리로딩 방지
-    e.preventDefault();
-    // 상태값을 onCreate 를 통하여 부모에게 전달
-    this.props.onCreate(this.state);
+    //e.preventDefault();
+    
     // 상태 초기화
     this.setState({
       place:'',
@@ -43,7 +42,11 @@ class PlanForm extends Component {
       stars:'',
       review:'',  
       type: 'food'
-    })
+    })  
+
+    // 상태값을 onCreate 를 통하여 부모에게 전달
+    this.props.onCreate(this.state);
+    
   }
 
   handleImageChange = () => {
@@ -60,6 +63,14 @@ class PlanForm extends Component {
       selected,
       onSelect
     } = this.props;
+
+    const {
+      place,
+      price,
+      time,
+      stars,
+      review
+    } = this.state;
 
     const typeList = types.map(
     (item) => (<TypeButton value={item.value} active={selected === item.key} onClick={()=>onSelect(item.key)} key={item.key}/>));
@@ -78,17 +89,17 @@ class PlanForm extends Component {
             <div className="option-form">
               <div>
                 <span> 장소</span>
-                <input type="text" name="place" placeholder="그 곳은 어딘가요?" onChange={this.handleChange}/>
+                <input type="text" value={place} name="place" placeholder="그 곳은 어딘가요?" onChange={this.handleChange}/>
                 
                 <span> 가격</span>
-                <input type="number" name="price" placeholder="얼마였나요?" onLoad={this.handleChange}/>
+                <input type="number" value={price} name="price" placeholder="얼마였나요?" onChange={this.handleChange}/>
               </div>
               <div>
                 <span> 시간</span>  
-                <input type="time" name="time" onLoad={this.handleChange}/>
+                <input type="time" value={time} name="time" onChange={this.handleChange}/>
                 
                 <span> 별점</span>
-                <input type="number" name="stars" placeholder="5점 만점에?" onLoad={this.handleChange}/>
+                <input type="number" value={stars} name="stars" placeholder="5점 만점에?" onChange={this.handleChange}/>
               </div>
             </div>
           </div>
@@ -96,7 +107,7 @@ class PlanForm extends Component {
             <img src={require('./img/'+selected+'.png')} alt={selected} onLoad={this.handleImageChange}/>
           </div>
           <div className="review-wrapper">
-            <input type="text" name="review" placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!" onChange={this.handleChange}/>
+            <input type="text" name="review" value={review} placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!" onChange={this.handleChange}/>
           </div>
         </div>
       </section>

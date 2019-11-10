@@ -11,6 +11,8 @@ const types= [
 
 class App extends Component {
 
+  id = 1;
+
   state = {
     selected:'food',
     plans: [
@@ -28,6 +30,7 @@ class App extends Component {
   handleCreate = (data) => {
     const { plans } = this.state;
     this.setState({
+      selected:'food',
       plans: plans.concat({ id: this.id++, ...data })
     })
     console.log(plans+"추가사항");
