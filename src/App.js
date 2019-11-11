@@ -16,7 +16,7 @@ class App extends Component {
   state = {
     selected:'food',
     plans: [
-      {id: 0, place:'서울특별시의 고급 레스토랑', price:300000, time:'20:00:00',stars:5, review:'이곳에서는 꼭 조식을 드셔보세요. 조식이 정말 맛있습니다.', type: 'food'}
+      {id: 0, place:'서울특별시의 고급 레스토랑', price:300000, time:'20:00:00',stars:5, review:'이곳에서는 꼭 파스타를 드셔보세요. 파스타가 정말 맛있습니다.', type: 'food'}
     ]
   }
 

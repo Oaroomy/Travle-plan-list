@@ -83,9 +83,12 @@
   margin: 5px;
 }
 
-.review-wrapper input{
+.review-wrapper textarea{
   margin:5px;
   padding:5px;
   height: 90px;
   width: 348px;
+  border: 1px solid #adadad;
+  border-radius: 5px;
+  resize: none;
 }

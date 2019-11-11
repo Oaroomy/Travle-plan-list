@@ -107,7 +107,7 @@ class PlanForm extends Component {
             <img src={require('./img/'+selected+'.png')} alt={selected} onLoad={this.handleImageChange}/>
           </div>
           <div className="review-wrapper">
-            <input type="text" name="review" value={review} placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!" onChange={this.handleChange}/>
+            <textarea name="review" value={review} placeholder="그 곳은 어땠나요? 만족스러웠나요? 자세한 평을 써주세요!" onChange={this.handleChange}/>
           </div>
         </div>
       </section>
