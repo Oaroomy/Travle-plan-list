@@ -3,13 +3,13 @@ import './css/PlanItem.css';
 
 class PlanItem extends Component {
   render(){
-    const{ place, price, time, stars, review, type } = this.props;
+    const{ place, price, time, stars, review, type, day } = this.props;
     console.log(place+"의"+type+'type입니다.');
     return(
       <div className='item-wrapper'>
         <div className='first-row'>
           <div className="today">
-            <span>1일차</span>
+            <span>{day}일차</span>
             <div>{time}</div> 
           </div>
           <div className="info-wrapper">

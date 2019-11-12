@@ -7,6 +7,7 @@ const TypeButton = ({ value, active, onClick }) => {
       type="button" value={value} 
       className="plan-button" 
       onClick={onClick}
+      
     />
   );
 }
@@ -19,7 +20,8 @@ class PlanForm extends Component {
     time:'',
     stars:'',
     review:'',
-    type: this.props.selected
+    type: this.props.selected,
+    day: this.props.day
   }
 
 
@@ -56,12 +58,14 @@ class PlanForm extends Component {
     })
   }
 
+
   render(){
 
     const {
       types,
       selected,
-      onSelect
+      onSelect,
+      day
     } = this.props;
 
     const {
@@ -73,7 +77,7 @@ class PlanForm extends Component {
     } = this.state;
 
     const typeList = types.map(
-    (item) => (<TypeButton value={item.value} active={selected === item.key} onClick={()=>onSelect(item.key)} key={item.key}/>));
+    (item) => (<TypeButton value={item.value} active={selected === item.key} onClick={()=>onSelect(item.key,day)} key={item.key}/>));
 
   return (
     <div className="planForm">
@@ -84,7 +88,7 @@ class PlanForm extends Component {
         <div className='form-wrapper'>
           <div className='option-wrapper'>
             <div className="days">
-              <span>1일차</span>
+              <span>{day}일차</span>
             </div>
             <div className="option-form">
               <div>
